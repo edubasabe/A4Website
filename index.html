@@ -60,7 +60,12 @@
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
-      <span class="close">×</span>
+      <span class="close">
+        <svg width="30" height="30">
+	        <line x1="0" y1="0" x2="30" y2="30" style="stroke:rgb(200,200,200);stroke-width:1"></line>
+          <line x1="0" y1="30" x2="30" y2="0" style="stroke:rgb(200,200,200);stroke-width:1"></line>
+        </svg>
+      </span>
     </div>
     <div class="modal-body">
       <h4>Inicio de Sesión</h4>
@@ -75,8 +80,7 @@
             <br>
             <input type='submit' name='BtnEnviar' id='BtnEnviar' class='button-primary' value='Iniciar Sesión'>
        </form>
-            <br>
-            <a href="#">¿Ha olvidado su dirección de correo electrónico o contraseña?</a>
+            <a href="#" style="margin-top:1rem;">¿Ha olvidado su usuario o contraseña?</a>
             <hr>
             <button class="button-secondary"><a href="#">Registrarse</a></button>
           </div>

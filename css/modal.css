@@ -12,22 +12,26 @@
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(255,255,255,0.9); /* Black w/ opacity */
+    -webkit-transition:background-color .4s ease-out;
+       -moz-transition:background-color .4s ease-out;
+            transition:background-color .4s ease-out;
 }
 
 /* Modal Content */
 .modal-content {
     position: relative;
-    background-color: #fefefe;
+    /*background-color: #fefefe;*/
     margin: auto;
     padding: 0;
     /*border: 1px solid #888;*/
-    width: 30%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    width: 100%;
+    max-width: 500px;
+    /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
     -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
+    -webkit-animation-duration: 0.4s ;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
 }
 
 /* Add Animation */
@@ -62,7 +66,7 @@
     color: white;
 }
 
-.modal-body {padding: 2rem 8rem;}
+.modal-body {padding: 4rem;}
 
 .modal-body h4 {
   text-align: center;
@@ -71,9 +75,14 @@
   font-weight: normal;
   font-size: 16px;
 }
-
+.modal-body button a {
+  color: #000;
+}
 .modal-body a {
+  display: block;
   text-decoration: none;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .modal-body input[type="text"], .modal-body input[type="password"]  {

@@ -126,14 +126,16 @@ border-radius: 3px;
 text-decoration: none;
 color: #fff;
 font-size: 12px;
+font-weight: 700;
 margin-top: 10px;
 padding:5px 10px ;
 margin-right: 1rem;
-transition: all .5s;
+-webkit-transition:background-color .4s ease-out;
+   -moz-transition:background-color .4s ease-out;
+        transition:background-color .4s ease-out;
 }
 .lista-precios:hover {
   background-color: #ad0976;
-  transition: all .5s;
 }
 
 ul.nav {
@@ -172,6 +174,9 @@ ul.menu-productos li a {
   font-size: 16px;
   color: #9b9b9b;
 }
+ul.menu-productos li a:hover {
+  color: #294BAF;
+}
 
 .bg-productos {
   background-color: #f9fafb;
@@ -189,7 +194,7 @@ ul.menu-productos li a {
 
 
 .banner {
-  background: #ccc url();
+  background: #DFEBEC url();
   min-height: 550px;
 }
 
