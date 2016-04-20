@@ -13,10 +13,11 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/skeleton.css">
+        <link rel="stylesheet" href="css/modal.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-      
+
         <!-- Esto va para un header.php -->
         <header>
         <div class="cabecero">
@@ -30,7 +31,7 @@
               <div class="ten columns">
               <a href="#" class="lista-precios">Lista de Precios</a><br>
                 <ul class="nav">
-                  <li><a href="#">Iniciar sesión</a></li>
+                  <li><a href="#" id="myBtn">Iniciar sesión</a></li>
                   <li><a href="#">Regístrate</a></li>
                 </ul>
               </div>
@@ -54,6 +55,37 @@
           </div>
         </div>
         </header>
+<!-- Ventana Modal Iniciar sesion -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">×</span>
+    </div>
+    <div class="modal-body">
+      <h4>Inicio de Sesión</h4>
+      <form name="inicia-sesion" action="sesion.php" method="post">
+        <div class="row">
+          <div class="twelve columns">
+            <label for="usuario">Usuario</label>
+            <input type="text" name="txtusuario" maxlength="12" placeholder="Ingrese su nombre de usuario" value="">
+            <br>
+            <label for="password">Contraseña</label>
+            <input type='password' name='txtclave' maxlength='12' placeholder='Ingrese su contraseña' id='txtclave' value=''>
+            <br>
+            <input type='submit' name='BtnEnviar' id='BtnEnviar' class='button-primary' value='Iniciar Sesión'>
+       </form>
+            <br>
+            <a href="#">¿Ha olvidado su dirección de correo electrónico o contraseña?</a>
+            <hr>
+            <button class="button-secondary"><a href="#">Registrarse</a></button>
+          </div>
+        </div>
+
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
 
           <!-- Contenido del Sitio -->
           <section class="banner">
@@ -68,5 +100,6 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/modal.js"></script>
     </body>
 </html>
