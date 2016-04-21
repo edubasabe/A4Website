@@ -100,7 +100,10 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
+.img-responsive{
+  max-width: 100%;
+  height: auto;
+}
 
 
 
@@ -125,7 +128,7 @@ background-color:#313280;
 border-radius: 3px;
 text-decoration: none;
 color: #fff;
-font-size: 12px;
+font-size: 1.2rem;
 font-weight: 700;
 margin-top: 10px;
 padding:5px 10px ;
@@ -151,7 +154,7 @@ ul.nav li {
 }
 
 ul.nav li a {
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #9b9b9b;
   text-decoration: none;
   padding:0 1rem;
@@ -171,7 +174,7 @@ ul.menu-productos li {
 
 ul.menu-productos li a {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #9b9b9b;
 }
 ul.menu-productos li a:hover {
@@ -194,19 +197,41 @@ ul.menu-productos li a:hover {
 
 
 .banner {
-  background: #DFEBEC url();
-  padding: 5rem 0;
+  background: #DFEBEC url(../img/banner/bannerA4-01.png);
+  padding: 6rem 0;
   min-height: 20%;
 }
 .banner .button-primary {
+font: bold 1.8rem "Roboto", Arial, sans-serif;
+padding: 1.2rem 1.4rem;
 display: block;
-font-size: 2.5rem;
-max-width: 260px;
-height: 6rem;
+height: inherit;
+width: auto;
+margin: 0 auto;
+text-align: center;
+}
+.banner h2{
+  font:bold 5.1rem/1em "Roboto", Arial, sans-serif;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.banner h4 {
+  font: normal 1.9rem/1.2em "Roboto", Arial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom:3.0rem;
+}
+.banner h2,  .banner h4 {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
 }
 
+
 @media (max-width: 550px) {
-  .banner h2 {text-align: center;}
+  .banner h2 {text-align: center; font-size: 3.6rem;}
   .banner h4 {text-align: center;}
   .banner .button-primary {margin: 0 auto; text-align: center;}
 
@@ -215,23 +240,55 @@ height: 6rem;
 /* =================================
         Servicios
   ================================ */
-.servicios h1 {text-align: center; margin-bottom: 0; margin-top: 2rem;}
+.servicios {
+padding: 6.0rem 0;
+}
+
+.servicios p {
+  color:#8fa6b3;
+  font: normal 1.5rem/2.2rem 'Roboto', Arial, sans-serif;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+}
+.servicios h3 {
+  padding: 2rem;
+  font: bold 4.0rem/3.1rem 'Roboto', Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 2rem;
+}
 .box-servicio{
-/*border: 1px solid #ccc;*/
+border: 1px solid #e1e8ed;
 text-align: center;
-padding: 2rem;
-border-radius: 0 0 .5rem .5rem;
+border-radius:.4rem;
 /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.2);*/
-margin: 1rem auto;
+margin: 2rem auto;
+}
+.box-servicio h4 {
+  margin-bottom: 1rem;
+}
+.box-servicio .img-servicio {
+  border: none;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 2rem;
 }
 
 /* =================================
         Quienes Somos
   ================================ */
-  .quienes-somos {
+.quienes-somos {
     padding: 5rem 0;
-    background: #efefef;
-  }
+      background: #b5568a url(../img/quienes-somos/bg-quienes-somos.jpg);
+}
+.quienes-somos p {
+
+font: normal 1.8rem/2.9rem 'Roboto', Arial, sans-serif;
+}
+  .quienes-somos h3, .quienes-somos p {
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
 @media (max-width: 550px) {
 .quienes-somos h3 {text-align: center;}
 .quienes-somos p {text-align: center;}
