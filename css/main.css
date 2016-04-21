@@ -117,9 +117,13 @@ textarea {
   border-top: 5px solid #313280;
   min-height: 80px;
   background-color: #fff;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 .logo {
  margin: 0.2rem 0;
+ float: left;
 }
 
 .lista-precios {
@@ -166,7 +170,12 @@ ul.nav li:nth-child(2) {
 ul.nav li:nth-child(2) a {
 
 }
-ul.menu-productos{margin: 0 auto; text-align: center;}
+ul.menu-productos {
+  margin: 0 auto;
+  text-align: center;
+
+}
+
 ul.menu-productos li {
   display: inline-block;
   margin: 1rem;
@@ -180,13 +189,30 @@ ul.menu-productos li a {
 ul.menu-productos li a:hover {
   color: #294BAF;
 }
+.fijo {
+  z-index: 9999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+ul.menu-productos li:first-child , .menu-productos li:last-child {display: none;}
+.abierto {
+  display: block!important;
+  -webkit-transition:all .4s ease-out;
+     -moz-transition:all .4s ease-out;
+          transition:all .4s ease-out;
+}
+
 /* Menu en Responsive */
-@media (max-width: 800px) {
-  ul.menu-productos li {
+@media (max-width: 927px) {
+#menu1 {display: none;}
+ul.menu-productos li {
     display: block;
     list-style-type: none;
   }
-
+ul.menu-productos li:first-child {display: block;}
+ul.menu-productos {display: none;}
 
 }
 
@@ -200,6 +226,80 @@ ul.menu-productos li a:hover {
 }
 .send {margin-right: 1rem;}
 
+/**********************************************************************
+*                            Menu Span                                *
+**********************************************************************/
+
+.menu-burger {
+    z-index: 99;
+    padding: 3.1rem 0rem;
+    width: 30px;
+    height: 22px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    display: none;
+    float: right;
+}
+
+.menu-burger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #313280;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.menu-burger span + span {
+    margin-top: 5px;
+}
+
+.menu-burger.open span + span + span {
+    opacity: 1;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    margin-top: -6px;
+}
+
+.menu-burger.open span + span {
+    opacity: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    margin: 0;
+}
+.menu-burger.open span {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    margin-top: 8px;
+}
+@media (max-width: 927px) {
+.menu-burger{display: block;}
+}
 
 /* =================================
         Banner
