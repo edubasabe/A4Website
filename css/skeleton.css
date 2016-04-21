@@ -31,7 +31,7 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box; }
@@ -158,9 +158,15 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: #1EAEDB;
+  -webkit-transition:color .3s ease-out;
+     -moz-transition:color .3s ease-out;
+          transition:color .3s ease-out;
+}
 a:hover {
-  color: #0FA0CE; }
+  /*color: #0FA0CE; */
+
+}
 
 
 /* Buttons
@@ -170,23 +176,27 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
+  width: 100%;
   display: inline-block;
-  height: 38px;
+  height: 44px;
   padding: 0 30px;
   color: #555;
   text-align: center;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 38px;
-  letter-spacing: .1rem;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   text-decoration: none;
   white-space: nowrap;
   background-color: transparent;
   border-radius: 4px;
   border: 1px solid #bbb;
   cursor: pointer;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  -webkit-transition:background-color .4s ease-out;
+     -moz-transition:background-color .4s ease-out;
+          transition:background-color .4s ease-out;
+}
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -206,8 +216,8 @@ input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #FFF;
-  background-color: #33C3F0;
-  border-color: #33C3F0; }
+  background-color: #294BAF;
+  border-color: #294BAF; }
 .button.button-primary:hover,
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,
@@ -219,8 +229,43 @@ input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
   color: #FFF;
-  background-color: #1EAEDB;
-  border-color: #1EAEDB; }
+  background-color: #ad0976;
+  border-color: #ad0976; }
+
+/* Button Secondary*/
+.button.button-secondary,
+button.button-secondary,
+input[type="submit"].button-secondary,
+input[type="reset"].button-secondary,
+input[type="button"].button-secondary {
+  color: #FFF;
+  background-color: #E1E7EB;
+  border-color: #E1E7EB; }
+.button.button-secondary:hover,
+button.button-secondary:hover,
+input[type="submit"].button-secondary:hover,
+input[type="reset"].button-secondary:hover,
+input[type="button"].button-secondary:hover,
+/* .button.button-secondary:focus,
+button.button-secondary:focus,
+input[type="submit"].button-secondary:focus,
+input[type="reset"].button-secondary:focus,
+input[type="button"].button-secondary:focus */ {
+  color: #FFF;
+  background-color: #294BAF;
+  border-color: #294BAF; }
+button a {
+  text-decoration: none;
+  color:inherit;
+}
+
+
+
+
+
+
+
+
 
 
 /* Forms
@@ -266,7 +311,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-  border: 1px solid #33C3F0;
+  border: 1px solid #294BAF;
   outline: 0; }
 label,
 legend {

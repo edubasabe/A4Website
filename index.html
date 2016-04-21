@@ -1,0 +1,184 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/skeleton.css">
+        <link rel="stylesheet" href="css/modal.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+
+        <!-- Esto va para un header.php -->
+        <header>
+        <div class="cabecero">
+          <nav class="container">
+            <div class="row">
+              <div class="two columns">
+                <div class="logo">
+                  <img src="img/a4Logo.svg" width="auto" height="80px" alt="Logo">
+                </div>
+              </div>
+              <div class="ten columns">
+              <a href="#" class="lista-precios">Lista de Precios</a><br>
+                <ul class="nav">
+                  <li><a href="#" id="myBtn">Iniciar sesión</a></li>
+                  <li><a href="#">Regístrate</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="bg-productos">
+          <div class="container">
+            <div class="row">
+            <div class="twelve columns">
+            <ul class="menu-productos">
+              <li><a href="#">Tarjetas de presentación</a></li>
+              <li><a href="#">Volantes</a></li>
+              <li><a href="#">Pendondes</a></li>
+              <li><a href="#">Factureros</a></li>
+              <li><a href="#">Calendarios</a></li>
+              <li><a href="#">Cuarto de pliego</a></li>
+            </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+        </header>
+<!-- Ventana Modal Iniciar sesion -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">
+        <svg width="30" height="30">
+	        <line x1="0" y1="0" x2="30" y2="30" style="stroke:rgb(200,200,200);stroke-width:1"></line>
+          <line x1="0" y1="30" x2="30" y2="0" style="stroke:rgb(200,200,200);stroke-width:1"></line>
+        </svg>
+      </span>
+    </div>
+    <div class="modal-body">
+      <h4>Inicio de Sesión</h4>
+      <form name="inicia-sesion" action="sesion.php" method="post">
+        <div class="row">
+          <div class="twelve columns">
+            <label for="usuario">Usuario</label>
+            <input type="text" name="txtusuario" maxlength="12" placeholder="Ingrese su nombre de usuario" value="">
+            <br>
+            <label for="password">Contraseña</label>
+            <input type='password' name='txtclave' maxlength='12' placeholder='Ingrese su contraseña' id='txtclave' value=''>
+            <br>
+            <input type='submit' name='BtnEnviar' id='BtnEnviar' class='button-primary' value='Iniciar Sesión'>
+       </form>
+            <a href="#" style="margin-top:1rem;">¿Ha olvidado su usuario o contraseña?</a>
+            <hr>
+            <button class="button-secondary"><a href="#">Registrarse</a></button>
+          </div>
+        </div>
+
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+          <!-- Contenido del Sitio -->
+          <section class="banner">
+            <div class="container">
+              <div class="row">
+                <div class="five columns"><img src="#" alt=""></div>
+                <div class="seven columns">
+                    <h2><b>¡Envíanos tu arte!</b></h2>
+                    <h4>Ahora no es necesario que vengas a nuestras oficinas para entregar tus archivos. Regístrate y súbelos aquí</h4>
+                    <button class="button-primary"><a href="" >Comienza Ahora</a></button>
+                </div>
+            </div>
+            </div>
+          </section>
+
+          <section class="servicios">
+            <div class="container">
+              <div class="row">
+                <h1>Servicios</h1>
+              </div>
+              <div class="row">
+                <div class="four columns">
+                  <div class="box-servicio">
+                    <img src="" alt="">
+                    <h4>Tarjetas de Presentación</h4>
+                    <p>Imprime tus tarjetas de visita para todos tus potenciales clientes en las cantidades que necesites, tenemos diferentes modelos de muestra por una o ambas caras con o sin laminado.</p>
+                  </div>
+                </div>
+                <div class="four columns">
+                  <div class="box-servicio">
+                    <img src="" alt="">
+                    <h4>Volantes / Flyers</h4>
+                    <p>Justo lo que necesitas para promocionar tus productos, impresión digital Offset de volantes, flyers, tripticos, dipticos con la información de tu empresa con precios accesibles a todas las empresas.</p>
+                  </div>
+                </div>
+                <div class="four columns">
+                  <div class="box-servicio">
+                    <img src="" alt="">
+                    <h4>Pendones</h4>
+                    <p>Para la publicidad exterior de tu empresa, para las exposiciones y ponencias de las diferentes actividades que se realizan, eventos de promoción, conferencias, bazares.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Servicios 2da Fila -->
+              <div class="row">
+                <div class="four columns">
+                  <div class="box-servicio">
+                    <img src="" alt="">
+                    <h4>Factureros</h4>
+                    <p>Impresión de hojas de factura o factureros en lotes, a full color, monocromático o escala de grises. Para que puedas brindarles a tus clientes un soporte de venta de tus productos o servicios.</p>
+                  </div>
+                </div>
+                <div class="four columns">
+                  <div class="box-servicio">
+                    <img src="" alt="">
+                    <h4>Impresión Individual</h4>
+                    <p>También tenemos la capacidad de brindarte cosas simples, como las impresiones individuales de un formato específico. Para que puedas realizar de forma personalizada todo lo que esté al alcance de tus manos.</p>
+                  </div>
+                </div>
+                <div class="four columns">
+                  <div class="box-servicio">
+                    <img src="" alt="">
+                    <h4>Calendarios</h4>
+                    <p>Traemos para ti modelos impactantes de calendarios o almanaques que imprimimos con la mejor calidad digital Offset en tiempos record, y con acabados finales de laminado mate o brillante para que perduren en el tiempo.</p>
+                  </div>
+                </div>
+              </div><!-- Fin de 2da fila -->
+           </div> <!-- Fin de container -->
+          </section>
+
+          <section class="quienes-somos">
+            <div class="container">
+              <div class="row">
+                <six class="columns"><img src="" alt="quienes-somos" /></six>
+                <six class="columns">
+                  <h3>Quiénes somos</h3>
+                  <p>Somos un equipo de profesionales con más de 30 años de experiencia en la industria gráfica, que tiene como principal objetivo producir impresos de calidad. Hacemos hincapié en la calidad de nuestros trabajos, teniendo como principal objetivo la atención personalizada para satisfacción de nuestros clientes.</p>
+                  <p>Imprimimos tanto para ambientes de exteriores como interiores y la resolución de nuestros equipos le brindará una calidad óptima de impresión. Si su necesidad es impactar visualmente a los consumidores, el gran formato es la solución. En A4 contamos con equipos de gran formato donde podrá imprimir pendones, afiches, banners, fotos a gran tamaño.</p>
+                </six>
+              </div>
+            </div>
+          </section>
+
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/modal.js"></script>
+    </body>
+</html>
