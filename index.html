@@ -60,7 +60,12 @@
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
-      <span class="close">×</span>
+      <span class="close">
+        <svg width="30" height="30">
+	        <line x1="0" y1="0" x2="30" y2="30" style="stroke:rgb(200,200,200);stroke-width:1"></line>
+          <line x1="0" y1="30" x2="30" y2="0" style="stroke:rgb(200,200,200);stroke-width:1"></line>
+        </svg>
+      </span>
     </div>
     <div class="modal-body">
       <h4>Inicio de Sesión</h4>
@@ -75,8 +80,7 @@
             <br>
             <input type='submit' name='BtnEnviar' id='BtnEnviar' class='button-primary' value='Iniciar Sesión'>
        </form>
-            <br>
-            <a href="#">¿Ha olvidado su dirección de correo electrónico o contraseña?</a>
+            <a href="#" style="margin-top:1rem;">¿Ha olvidado su usuario o contraseña?</a>
             <hr>
             <button class="button-secondary"><a href="#">Registrarse</a></button>
           </div>
@@ -91,6 +95,28 @@
           <section class="banner">
             <div class="container">
               <div class="row"><p>Hello world! This is HTML5 Boilerplate.</p></div>
+            </div>
+          </section>
+
+          <section class="servicios">
+            <div class="container">
+              <div class="row">
+                <div class="four columns">
+                  <div class="img"></div>
+                  <h4></h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum rerum dolore alias accusamus repudiandae pariatur obcaecati quas laudantium maxime provident modi eum, molestiae voluptas nihil autem amet, nisi ad minus!</p>
+                </div>
+                <div class="four columns">
+                  <div class="img"></div>
+                  <h4></h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam a rem natus quaerat eius deserunt voluptate placeat nam facere maxime temporibus delectus atque in, corrupti animi beatae excepturi sed ad!</p>
+                </div>
+                <div class="four columns">
+                  <div class="img"></div>
+                  <h4></h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate impedit doloribus, explicabo ullam reprehenderit mollitia, quaerat non, adipisci accusantium id ipsam, quasi! Dignissimos aliquid excepturi optio nemo ducimus accusantium molestiae?</p>
+                </div>
+              </div>
             </div>
           </section>
 
