@@ -180,6 +180,16 @@ ul.menu-productos li a {
 ul.menu-productos li a:hover {
   color: #294BAF;
 }
+/* Menu en Responsive */
+@media (max-width: 800px) {
+  ul.menu-productos li {
+    display: block;
+    list-style-type: none;
+  }
+
+
+}
+
 
 .bg-productos {
   background-color: #f9fafb;
@@ -278,21 +288,68 @@ margin: 2rem auto;
         Quienes Somos
   ================================ */
 .quienes-somos {
-    padding: 5rem 0;
-      background: #b5568a url(../img/quienes-somos/bg-quienes-somos.jpg);
+      /*background: #b5568a url(../img/quienes-somos/bg-quienes-somos.jpg);*/
+      background-color: #fff;
+}
+.quienes-somos h3{
+    color: #4e5a67;
 }
 .quienes-somos p {
-
-font: normal 1.8rem/2.9rem 'Roboto', Arial, sans-serif;
+  color: #737373;
+  font: normal 1.8rem/2.9rem 'Roboto', Arial, sans-serif;
+}
+.quienes-somos .flexbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+.quienes-somos .team {
+  background: url(../img/quienes-somos/equipo.jpg) no-repeat bottom center;
+  background-size: contain;
+}
+.quienes-somos .bg-white {
+  padding: 5rem 0;
+  background-color: #fff;
 }
   .quienes-somos h3, .quienes-somos p {
-    color: #fff;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    /*color: #fff;*/
+    /*text-shadow: 0 1px 3px rgba(0,0,0,0.5);*/
 }
 @media (max-width: 550px) {
 .quienes-somos h3 {text-align: center;}
 .quienes-somos p {text-align: center;}
 }
+
+/* =================================
+        Contacto
+  ================================ */
+.contacto {
+  padding:0 0 6rem 0;
+  background-color: darkgray;
+}
+
+
+.footer {
+  padding:6rem 0;
+  background-color: #1C1C3A;
+  color: #fff;
+}
+.footer .menu-productos-footer {
+
+}
+.footer .menu-productos-footer li {
+  list-style-type: none;
+}
+.footer .menu-productos-footer li a {
+  text-decoration: none;
+}
+
+.underfoot {
+  padding: 2rem 0;
+  background-color: #16162D;
+}
+.underfoot p {margin-bottom: 0; color: rgba(255, 255, 255, 0.5);}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
