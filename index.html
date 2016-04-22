@@ -12,37 +12,49 @@
         <link rel="icon" sizes="any" type="image/icon" href="favicon.ico" >
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/modal.css">
-        <link rel="stylesheet" href="css/skeleton.css">
+        <!-- <link rel="stylesheet" href="css/skeleton.css"> -->
+        <link rel="stylesheet" href="css/bootstrap.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-
+    <!-- preloader   -->
+    <div id="preloader" class="invisible">
+      <div id="status"><img src="img/loader-04.png" class="img-loading" width="125" height="125" alt="loading"></div>
+    </div>
         <!-- Esto va para un header.php -->
         <header>
-        <div class="cabecero">
-          <nav class="container">
-            <div class="row">
-              <div class="twelve columns">
-                <div class="logo">
-                  <img src="img/logo/A4Logo.svg" width="auto" height="80px" alt="Logo">
-                </div>
+        <!-- Titulo para indexar -->
+        <h1 class="invisible">A4</h1>
+        <h2 class="invisible">Impresos</h2>
+        <!-- Navegacion   -->
+        <nav class="navbar" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <div class="menu-burger">
                   <span></span>
                   <span></span>
                   <span></span>
                 </div>
-                <div id="menu1">
-                  <a href="#" class="lista-precios">Lista de Precios</a><br>
-                  <ul class="nav">
-                    <li><a href="#" id="myBtn">Iniciar sesión</a></li>
-                    <li><a href="#">Regístrate</a></li>
-                  </ul>
+              </button>
+              <!-- Logo -->
+              <a href="/" class="navbar-brand">
+                <span class="invisible">A4Website</span>
+                <div class="logo">
+                  <img src="img/logo/A4Logo.svg" width="auto" height="80px" alt="Logo">
                 </div>
+              </a>
             </div>
-            </div>
-          </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><span><a href="#" class="lista-precios">Lista de Precios</a></span><br>
+                  <a href="#" id="myBtn">Iniciar sesión</a></li>
+                <li><a href="#">Regístrate</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container -->
           </nav>
 
         <div class="bg-productos">
@@ -223,12 +235,11 @@
   </div>
 </div>
 </footer>
-
-
-        <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/modal.js"></script>
-    </body>
+<!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+</body>
 </html>
