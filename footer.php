@@ -26,7 +26,7 @@
 <div class="underfoot">
   <div class="container">
     <div class="row">
-      <p>Copyrigth. Todos los derechos reservados.</p>
+      <p>Copyright. Todos los derechos reservados.</p>
   </div>
   </div>
 </div>
