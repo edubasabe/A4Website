@@ -8,18 +8,18 @@
 	$errorendato = 0; 
 ?>
 
-<html class="no-js" lang="">
-    <head>
-    	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<html lang="en">
+<head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>A4 - Calendarios</title>
+        <title>A4 - Factureros</title>
         <meta name="description" content="">
         <meta name="author" content="David Basabe, Mariam Torres, Maria Racines">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#313280">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-		<link rel="stylesheet" href="css/main.css">
+        <link rel="icon" sizes="any" type="image/icon" href="favicon.ico" >
+        <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/modal.css">
         <!-- <link rel="stylesheet" href="css/skeleton.css"> -->
         <link rel="stylesheet" href="css/bootstrap.css">
@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
+
 <body>
 <header>
 <?php include_once("header.php") ?>
@@ -34,11 +35,10 @@
 
 <?php
 	$nombre = $_POST['nombre-archivo'];
+	$tamano     = $_POST['tamano'];
+	$papel   = $_POST['tipopapel'];
 	$cantidad  = $_POST['cantidad'];
-	$pag  = $_POST['pagin'];
-	$anillado  = $_POST['anillado'];
-	$adic1  = $_POST['uv'];
-	$adic2  = $_POST['bordes'];
+	$copias  = $_POST['hojascopia'];
 	$archivo   = $_POST['archivo'];
 	$obs     = $_POST['observaciones'];
 	
@@ -56,16 +56,14 @@
 		<div class="row">
 			<div class="col-md-5">
 				<div class="imagem-servicio">
-					<img src="img/servicios/calendarios2.jpg">
+					<img src="img/servicios/factureros2.jpg" alt="">
 				</div>
 			</div>
 			<div class="col-md-7">
-				<h2>Calendarios</h2>
-				<br>
-				<p>Contamos unicamente con impresión de calendarios anillados de escritorio. Tamaño 15x10 con tapa en glasé 300.</p>
-				<br>
-
-				<form action="" method="post" enctype="multipart/form-data">
+				<h2>Factureros</h2>
+				<div class="alert alert-danger text-center">Cada facturero cuenta con 50 hojas originales</div>
+				
+				<form action="" method="post" enctype="multipart/form-data" id="formulario">
 
 				<!-- Input -->
 				<div class="form-group">
@@ -86,13 +84,34 @@
 
 				<!-- Select -->
 				<div class="form-group">
+					<label for="tamaño">Tamaño:</label>
+					<select name="tamaño" id="tamaño" class="form-control">
+						<option value='' id='tamano'>Selecciona el tamaño</option>
+						<option value="a4" id="tamaño">A4</option>
+						<option value="a5" id="tamaño">A5</option>
+					</select>
+				</div>
+
+				<!--VALIDACIÓN-->
+				<?php 
+				if ( isset($tamano) and ($tamano == '') )
+				{
+					  echo "<span class='help-block'>* Debe seleccionar un tamaño</span> ";
+					  $campoobligado = 1;
+				}
+				else{
+				};
+				?>
+
+				<!-- Select -->	
+				<div class="form-group">
 					<label for="cantidad">Cantidad:</label>
 					<select name="cantidad" id="cantidad" class="form-control">
 						<option value="" id="cantidad">Seleccione la cantidad</option>
+						<option value="2" id="cantidad">2</option>
+						<option value="4" id="cantidad">4</option>
+						<option value="8" id="cantidad">8</option>
 						<option value="10" id="cantidad">10</option>
-						<option value="30" id="cantidad">30</option>
-						<option value="50" id="cantidad">50</option>
-						<option value="100" id="cantidad">100</option>
 					</select>
 				</div>
 
@@ -109,47 +128,19 @@
 
 				<!-- Select -->
 				<div class="form-group">
-					<label for="pagin">Páginas internas:</label>
-					<select name="pagin" id="pagin" class="form-control">
-						<option value="" id="pagin">Seleccione el tipo de papel para las páginas internas</option>
-						<option value="Bond" id="pagin">Bond</option>
-						<option value="Glase150" id="pagin">Glase 150</option>
+					<label for="hojascopia">Hojas de copia:</label>
+					<select name="hojascopia" id="hojascopia" class="form-control">
+						<option value="" id="cantidad">Seleccione la de hojas de copia</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
 					</select>
 				</div>
 
 				<!--VALIDACIÓN-->
 				<?php 
-				if ( isset($pag) and ($pag == '') )
+				if ( isset($copias) and ($copias == '') )
 				{
-					  echo "<span class='help-block'>* Debe elegir el tipo de papel para las páginas internas</span> ";
-					  $campoobligado = 1;
-				}
-				else{
-				};
-				?>
-
-				<!-- Checkbox -->
-				<div class="checkbox">
-					<label for="uv"><input type="checkbox" name="uv">Uverizado en páginas internas</label><br>
-					<label for="bordes"><input type="checkbox" name="bordes">Bordes redondeados</label>
-				</div>
-
-				<!-- Select -->
-				<div class="form-group">
-					<label for="anillado">Anillado:</label>
-					<select name="anillado" id="anillado" class="form-control">
-						<option value="">Seleccione el tipo de anillado</option>
-						<option value="blanco">Metal blaco</option>
-						<option value="negro">Metal negro</option>
-						<option value="plateado">Metal plateado</option>
-					</select>
-				</div>
-				
-				<!--VALIDACIÓN-->
-				<?php 
-				if ( isset($anillado) and ($anillado == '') )
-				{
-					  echo "<span class='help-block'>* Debe seleccionar el color para el anillado</span> ";
+					  echo "<span class='help-block'>* Debe seleccionar la cantidad de hojas de copia que requiere</span> ";
 					  $campoobligado = 1;
 				}
 				else{
@@ -160,6 +151,7 @@
 				<div class="form-group">
 					<input type="file" name="archivo" id="subiendo-archivo" data-multiple-caption="{count} files selected" class="btn btn-default" multiple />
 				</div>
+
 				<!-- Input textarea -->
 				<div class="form-group">
 					<label for="observaciones">Observaciones:</label><br>
