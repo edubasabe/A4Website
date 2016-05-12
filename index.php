@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -27,11 +28,6 @@
 <?php include_once("header.php") ?>
 </header>
 
-<?php include_once("iniciar-sesion.php") ?>
-
-<!-- Contenido del Sitio -->
-
-
 <!-- div class="jumbotron">
   <div class="container">
     <h1>Hello, world!</h1>
@@ -40,6 +36,8 @@
   </div>
 </div -->
 
+
+<main>
 <section class="banner">
   <div class="container">
     <div class="row">
@@ -126,7 +124,7 @@
 </section>
 
 <section class="contacto"></section>
-
+</main>
 
 <footer>
 <?php include_once("footer.php") ?>

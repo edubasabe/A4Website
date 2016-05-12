@@ -24,8 +24,19 @@
 
       <ul class="nav navbar-nav">
         <span><a href="#" class="lista-precios">Lista de Precios</a></span>
-        <li><a href="#" id="myBtn">Iniciar sesión</a></li>
-        <li><a href="#">Regístrate</a></li>
+        <?php 
+        error_reporting(E_ERROR | E_PARSE);
+        session_start();
+
+        if ($_SESSION['autenticado']) {
+         echo "<li><a href='salir.php'>Hola, ".$_SESSION['usuario'] ,"</a></li>"; 
+         echo "<li><a href='salir.php'>Cerrar sesión</a></li>";
+        }
+        else {
+          echo "<li><a href='login.php'>Iniciar sesión</a></li>";
+          echo "<li><a href='registro.php'>Regístrate</a></li>";
+        }
+        ?>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->

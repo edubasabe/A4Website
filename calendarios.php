@@ -1,3 +1,4 @@
+<?php include_once("acceso.php") ?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -35,13 +36,13 @@
 		<div class="row">
 			<div class="col-md-5">
 				<div class="imagem-servicio">
-					<img src="img/servicios/calendarios.jpg" alt="calendarios.jpg">
+					<img src="img/servicios/calendarios.jpg" alt="calendarios.jpg" class="img-responsive">
 				</div>
 			</div>
 			<div class="col-md-7">
 				<h2>Calendarios</h2>
 				<p>Contamos unicamente con impresión de calendarios anillados de escritorio. Tamaño 15x10 con tapa en glasé 300.</p>
-				<form action="" method="post" enctype="multipart/form-data">
+				<form action="" method="post" enctype="multipart/form-data" id="calendarios">
 				<!-- Input -->
 				<div class="form-group">
 					<label for="nombre-archivo">Nombre del archivo:</label>
@@ -80,7 +81,7 @@
 				</div>
 				<!-- Input subir archivo -->
 				<div class="form-group">
-					<input type="file" name="archivo" id="subiendo-archivo" data-multiple-caption="{count} files selected" class="btn btn-default" multiple />
+					<input type="file" name="archivo" id="subiendo-archivo" data-multiple-caption="{count} files selected" class="" multiple />
 				</div>
 				<!-- Input textarea -->
 				<div class="form-group">
@@ -89,7 +90,7 @@
 				</div>
 				<span class="help-block">* Condiciones de Envío de la solicitud que tenemos que cambiar </span>
 				<!-- Boton de Envio -->
-				<button type="submit" class="btn btn-default">Enviar Solicitud</button>
+				<button type="submit" class="btn btn-enviar">Enviar Solicitud</button>
 				</form>
 			</div>
 		</div>

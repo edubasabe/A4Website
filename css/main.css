@@ -113,6 +113,7 @@ textarea {
   height: auto;
 }
 .invisible {display: none;}
+.center {margin: 0 auto;}
 /* =================================
         Header
   ================================ */
@@ -384,12 +385,23 @@ text-align: center;
   opacity: 1;
 }
 
-#iniciarSesion .btn-azul {
+.btn-azul {
   color: #FFF;
   background-color: #294BAF;
   border-color: #294BAF;
   font-weight: 700;
 }
+
+
+.btn-gris {
+  background-color: #E1E7EB;
+}
+.logo-login img {
+  text-align: center;
+  margin: 0 auto;
+  max-height: 8rem;
+}
+
 /* =================================
         Servicios
   ================================ */
@@ -426,7 +438,14 @@ margin: 2rem auto;
   border-radius: 4px 4px 0 0;
   margin-bottom: 2rem;
 }
-
+.btn-enviar {
+  background-color: #7DCA39;
+  color: #fff;
+  font-weight: bold!important;
+  width: auto!important;
+  padding: 1rem 3rem!important;
+}
+.btn-enviar:hover {color: #fff;}
 /* =================================
         Quienes Somos
   ================================ */
@@ -500,6 +519,19 @@ Calendarios
 .calendarios {
   padding: 6rem 0;
 }
+
+/* =================================
+Login
+================================ */
+section.login {
+  padding: 6rem 0;
+}
+button a {text-decoration: none!important;}
+.error {
+  color:#D81B60;
+}
+
+
 
 /* ==========================================================================
    Helper classes
