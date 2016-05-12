@@ -48,12 +48,12 @@
     <div class="col-sm-12 col-md-12 col-lg-12">
     <ul class="menu-productos">
       <li><h4>Servicios</h4></li>
-      <li><a href="#">Tarjetas de presentación</a></li>
-      <li><a href="#">Volantes</a></li>
-      <li><a href="#">Pendondes</a></li>
-      <li><a href="#">Factureros</a></li>
+      <li><a href="tdp.php">Tarjetas de presentación</a></li>
+      <li><a href="volantes.php">Volantes</a></li>
+      <li><a href="pendones.php">Pendondes</a></li>
+      <li><a href="factureros.php">Factureros</a></li>
       <li><a href="calendarios.php">Calendarios</a></li>
-      <li><a href="#">Cuarto de pliego</a></li>
+      <li><a href="impindividual.php">Cuarto de pliego</a></li>
       <li><hr></li>
     </ul>
     </div>
