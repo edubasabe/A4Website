@@ -1,27 +1,12 @@
-<?php 
+<?php
 # session_start();
 # error_reporting(E_ERROR | E_PARSE);
  ?>
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>A4 - Inicio</title>
-        <meta name="description" content="">
-        <meta name="author" content="David Basabe, Mariam Torres, Maria Racines">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#313280">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="icon" sizes="any" type="image/icon" href="favicon.ico" >
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/modal.css">
-        <!-- <link rel="stylesheet" href="css/skeleton.css"> -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <!-- link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css' -->
-        <link rel="stylesheet" href="css/normalize.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
+<head>
+<?php include_once('head.php') ?>
+</head>
 <body>
 <header>
 <?php  include_once("header.php") ?>
@@ -30,10 +15,10 @@
 <main>
 <!-- Comienza php -->
 
-<?php 
+<?php
 session_start();
 if (!$_SESSION['autenticado']) {
-echo "  
+echo "
 <section class='login'>
   <div class='container'>
     <div class='row modal-body'>
@@ -45,7 +30,7 @@ echo "
           <h3 class='text-center'>Inicio de sesión</h3>
           <form name='inicia-sesion' action='sesion.php' method='post'> "; ?>
 
-          <?php echo "    
+          <?php echo "
           <label for='usuario'>Usuario</label>
           <input type='text' name='txtusuario' id='txtusuario' maxlength='12' placeholder='Ingrese su nombre de usuario' value=''>
           <br>
@@ -68,12 +53,12 @@ echo "
       <div class='col-md-4'></div>
   </div>
   </div>
-</section>"; 
-} 
-else { 
+</section>";
+}
+else {
   #echo "Sesión Iniciada";
   echo "<script>window.top.location='index.php'</script>";
-  #header("Location: index.php", true); 
+  #header("Location: index.php", true);
   }
 
 ?>

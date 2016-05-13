@@ -4,30 +4,14 @@
 	error_reporting(E_ERROR | E_PARSE); // Desactiva la notificación y warnings de error en php.
 
 	include_once('funciones.php');
-	$campoobligado = 0; 
-	$errorendato = 0; 
+	$campoobligado = 0;
+	$errorendato = 0;
 ?>
 
 <html lang="en">
 <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>A4 - Pendones</title>
-        <meta name="description" content="">
-        <meta name="author" content="David Basabe, Mariam Torres, Maria Racines">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#313280">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="icon" sizes="any" type="image/icon" href="favicon.ico" >
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/modal.css">
-        <!-- <link rel="stylesheet" href="css/skeleton.css"> -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/normalize.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-
+<?php include_once('head.php') ?>
+</head>
 <body>
 <header>
 <?php include_once("header.php") ?>
@@ -41,7 +25,7 @@
 	$adicional = $_POST['adicional'];
 	$archivo = $_POST['archivo'];
 	$obs     = $_POST['observaciones'];
-	
+
 	//echo "Su nombre es: $nombre";
 
 	/*foreach ($_POST['CheckBox'] as $idh)
@@ -72,7 +56,7 @@
 				<!--VALIDACIÓN-->
 				<?php
 					// el isset determina si una variable está definida, es decir posee algún valor, en cuyo caso nos devolvera el valor booleano.
-					if ( isset($nombre) and ($nombre == '') ) { 
+					if ( isset($nombre) and ($nombre == '') ) {
 						echo "<span class='help-block'>* Debe colocar un nombre al archivo</span>";
 						$campoobligado = 1;
 						}
@@ -92,7 +76,7 @@
 				</div>
 
 				<!--VALIDACIÓN-->
-				<?php 
+				<?php
 				if ( isset($tamano) and ($tamano == '') )
 				{
 					  echo "<span class='help-block'>* Debe seleccionar un tamaño</span> ";
@@ -102,7 +86,7 @@
 				};
 				?>
 
-				<!-- Text -->	
+				<!-- Text -->
 				<div class="form-group">
 					<label for="cantidad">Cantidad:</label>
 					<input name='cantidad' type='text' id='cantidad' class="form-control">
@@ -122,7 +106,7 @@
 						}
 						else
 						{
-							if ( isset($cantidad) and ($cantidad == '') ) { 
+							if ( isset($cantidad) and ($cantidad == '') ) {
 							echo "<span class='help-block'>* Debe especificar la cantidad</span>";
 							$campoobligado = 1;
 							}
@@ -140,7 +124,7 @@
 				</div>
 
 				<!--VALIDACIÓN-->
-				<?php 
+				<?php
 				if ( isset($calidad) and ($calidad == '') )
 				{
 					  echo "<span class='help-block'>* Debe seleccionar un tamaño</span> ";
@@ -167,7 +151,7 @@
 				<span class="adv">* Asegúrate de haber ingresado las especificaciones correctas antes de enviar el archivo. Al hacer clic, tu trabajo automáticamente estará en la lista de trabajo, por lo que podrá ser impreso minutos después de enviarlo.</span>
 
 				<!-- Boton de Envio -->
-				<?php 
+				<?php
 					if ( isset ($_POST['btn']) )
 					{
 						if ( $campoobligado == 1 or $errorendato == 1 )
@@ -191,7 +175,7 @@
 		</div>
 	</div>
 </section>
-	
+
 <footer>
 <?php include_once("footer.php") ?>
 </footer>

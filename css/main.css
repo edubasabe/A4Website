@@ -146,6 +146,7 @@ margin-left: 1rem;
 }
 .lista-precios:hover {
   background-color: #ad0976;
+  color: #fff;
 }
 /*
 ul.nav {
@@ -384,6 +385,107 @@ text-align: center;
 #iniciarSesion .close {
   opacity: 1;
 }
+/* Ventana Modal */
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 5%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(255,255,255,0.98); /* Black w/ opacity */
+    -webkit-transition:background-color .4s ease-out;
+       -moz-transition:background-color .4s ease-out;
+            transition:background-color .4s ease-out;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    /*background-color: #fefefe;*/
+    margin: auto;
+    padding: 0;
+    /*border: 1px solid #888;*/
+    width: 100%;
+    max-width: 500px;
+    /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s ;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: #222;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: transparent;
+    color: white;
+}
+
+.modal-body {padding: 4rem;}
+
+.modal-body h4 {
+  text-align: center;
+}
+.modal-body label {
+  font-weight: normal;
+  font-size: 16px;
+}
+.modal-body button a {
+  color: #000;
+}
+.modal-body a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.modal-body input[type="text"], .modal-body input[type="password"]  {
+  width: 100%;
+}
+.modal-body input#BtnEnviar {
+  display: block;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: transparent;
+    color: white;
+}
 
 .btn-azul {
   color: #FFF;
@@ -406,12 +508,12 @@ text-align: center;
         Servicios
   ================================ */
 .servicios {
-padding: 6.0rem 0;
+padding: 2rem 0;
 }
-
+.servicios a:hover {text-decoration: none;}
 .servicios p {
-  color:#8fa6b3;
-  font: normal 1.5rem/2.2rem 'Roboto', Arial, sans-serif;
+  color:#71787B;
+  font: lighter 1.5rem/2.2rem 'Roboto', Arial, sans-serif;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 2rem;
@@ -429,6 +531,7 @@ text-align: center;
 border-radius:.4rem;
 /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.2);*/
 margin: 2rem auto;
+height: 515px;
 }
 .box-servicio h4 {
   margin-bottom: 1rem;
@@ -446,19 +549,47 @@ margin: 2rem auto;
   padding: 1rem 3rem!important;
 }
 .btn-enviar:hover {color: #fff;}
+
+/* =================================
+        Registro
+  ================================ */
+.registro {
+padding-top: 2rem;
+padding-bottom: 4rem;
+}
+
+.registro p {
+  color:#71787B;
+  font: lighter 1.5rem/2.2rem 'Roboto', Arial, sans-serif;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+}
+.registro h3 {
+  padding: 2rem;
+  font: bold 4.0rem/3.1rem 'Roboto', Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 2rem;
+}
+
+
+
+
 /* =================================
         Quienes Somos
   ================================ */
 .quienes-somos {
       /*background: #b5568a url(../img/quienes-somos/bg-quienes-somos.jpg);*/
       background-color: #fff;
+      padding: 4rem 0;
 }
 .quienes-somos h3{
     color: #4e5a67;
 }
 .quienes-somos p {
   color: #737373;
-  font: normal 1.8rem/2.9rem 'Roboto', Arial, sans-serif;
+  font: lighter 1.6rem/2.6rem 'Roboto', Arial, sans-serif;
 }
 .quienes-somos .flexbox {
   display: -webkit-flex;
@@ -483,18 +614,48 @@ margin: 2rem auto;
 .quienes-somos p {text-align: center;}
 }
 
+
+
+/* =================================
+espacio entre servicios y nav
+================================ */
+.img-serv {
+  padding: 5rem 0;
+}
+
+/* =================================
+ADVERTENCIA
+================================ */
+.adv {
+  font-size: 14px;
+  line-height: 14px;
+}
+
 /* =================================
         Contacto
   ================================ */
 .contacto {
-  padding:0 0 6rem 0;
-  background-color: darkgray;
+  padding: 3rem 0;
+  background-color: #F2F2F2;
+
+}
+.contacto h3 {
+  color: #4e5a67;
+
 }
 
+.direccion p{
+  color: #71787B;
+  font: lighter 1.6rem/2.6rem 'Roboto', Arial, sans-serif;
+  padding-bottom: 5px;
+}
+.direccion h3{
+  color: #4e5a67;
+}
 
 .footer {
   padding:6rem 0;
-  background-color: #1C1C3A;
+  background-color: #08003f;
   color: #fff;
 }
 .footer .menu-productos-footer {
@@ -531,8 +692,11 @@ button a {text-decoration: none!important;}
   color:#D81B60;
 }
 
-
-
+/* Formularios */
+#formulario .form-control {
+  width: 95%;
+  display: inline-block;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
