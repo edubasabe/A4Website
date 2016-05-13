@@ -1,13 +1,7 @@
 //Responsive
 $(document).ready(function(){
-      // if ($(window).width() < 927) {
-      //   $('#menu1').hide();
-      //   $('.cabecero').css('background-color','red');
-      // }
-      // else {
-      //   $('#menu1').show();
-      //   $('.cabecero').css('background-color','#fff');
-      // }
+	//Tooltip
+	$('.mitooltip').tooltip();
 });
 
 //Toggle Class del icono de menu

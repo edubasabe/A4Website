@@ -21,7 +21,6 @@
       </a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
       <ul class="nav navbar-nav">
         <span><a href="#" class="lista-precios">Lista de Precios</a></span>
         <?php
