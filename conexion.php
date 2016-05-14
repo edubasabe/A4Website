@@ -1,5 +1,5 @@
-<?php
-$mysqli = new mysqli("localhost","root","root","a4");
+<?php 
+$mysqli = new mysqli("localhost","root","","a4");
 if ($mysqli->connect_error) {
 	die('ERROR: No se establecio la conexi&oacuten. ' . mysqli_connect_error() );
 }

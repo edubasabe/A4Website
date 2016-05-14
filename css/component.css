@@ -51,15 +51,14 @@
 /* style 1 */
 
 .inputfile-1 + label {
-    color: #fff;
-    background-color: #313280;
-    border-radius: 0.3rem;
+    color: #f1e5e6;
+    background-color: #d3394c;
 }
 
 .inputfile-1:focus + label,
 .inputfile-1.has-focus + label,
 .inputfile-1 + label:hover {
-    background-color: #ad0976;
+    background-color: #722040;
 }
 
 

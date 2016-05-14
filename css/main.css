@@ -498,7 +498,7 @@ text-align: center;
     display: block!important;
     background-color: #ad0976;
     width: auto!important;
-}
+} 
 .btn-fucsia a {
       color: #fff!important;
       font-size: 2.4rem;
@@ -709,6 +709,19 @@ USUARIO
 }
 .usuario h2{
   font: bold 3.0rem/3.1rem 'Roboto', Arial, sans-serif;
+  color: #4e5a67;
+}
+.usuario-info {
+  font: bold 3.0rem/3.1rem 'Roboto', Arial, sans-serif;
+  color: #4e5a67;
+}
+.usuario p{
+  color: #71787B;
+    font: lighter 1.6rem/2.6rem 'Roboto', Arial, sans-serif;
+    padding-bottom: 5px;
+}
+.usuario input{
+  width: 35%!important;
 }
 /* =================================
 Login
