@@ -498,7 +498,7 @@ text-align: center;
     display: block!important;
     background-color: #ad0976;
     width: auto!important;
-} 
+}
 .btn-fucsia a {
       color: #fff!important;
       font-size: 2.4rem;
@@ -642,7 +642,8 @@ ADVERTENCIA
 ================================ */
 .adv {
   font-size: 14px;
-  line-height: 14px;
+  line-height: 22px;
+  display: inline-block;
 }
 
 /* =================================

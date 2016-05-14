@@ -6,14 +6,14 @@ $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];
 
 if ($correo != '' or $contrasena !='') {
-		
+
 	//BUSCAR EN BASE DE DATOS
 	$querybuscar = $mysqli->query("SELECT * FROM cliente where Correo='$correo' and contrasena='$contrasena' ");
-	while (($fila=mysqli_fetch_array($querybuscar))) 
+	while (($fila=mysqli_fetch_array($querybuscar)))
 	{
 		$correobd = $fila['Correo'];
 		$contrasenabd = $fila['contrasena'];
-		$id = $fila['id'];
+		$id = $fila['idCliente'];
 		$nombrebd = $fila['Nombre'];
 	}
 
@@ -34,5 +34,5 @@ else{
 	header("Location: login.php?error=si");
 }
 
-	
+
 ?>

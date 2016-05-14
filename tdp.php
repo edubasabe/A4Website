@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+	session_start();
 	error_reporting(E_ERROR | E_PARSE); // Desactiva la notificación y warnings de error en php.
 	include_once('conexion.php');
 	include_once('funciones.php');
@@ -40,10 +41,11 @@
 				<form action="tdp.php" method="post" enctype="multipart/form-data" class="" id="formulario">
 
 				<!-- Input -->
-				<div class="form-group">
-					<label for="nombre-archivo" class="control-label">Nombre del archivo:</label>
-					<input type="text" name="nombre-archivo" id="nombre-archivo" class="form-control" value="">
-				</div>
+				<?php echo "
+				<div class='form-group'>
+					<label for='nombre-archivo' class='control-label'>Nombre del archivo:</label>
+					<input type='text' name='nombre-archivo' id='nombre-archivo' class='form-control' value='$nombre'>
+				</div> "; ?>
 
 				<!--VALIDACIÓN-->
 				<?php
@@ -53,18 +55,23 @@
 						$campoobligado = 1;
 						}
 					else {
-					};
+					}
 				?>
 
 				<!-- Select -->
+				<?php echo "
 				<div class='form-group'>
 					<label for='tamano'>Tipo:</label>
 					<select name='tamano' id='tamano' class='form-control' >
 						<option value='' id='tamano'>Selecciona el tipo de tarjeta</option>
-						<option value='estandar' id='tamano'>Estandar (9x5)</option>
-						<option value='cuadrada' id='tamano'>Cuadrada (6x6)</option>
+						<option value='estandar' id='tamano'";
+						 if ( $tamano == 'estandar') { echo "selected";}
+						echo ">Estandar (9x5)</option>
+						<option value='cuadrada' id='tamano'";
+						if ( $tamano == 'cuadrada') { echo "selected";}
+						echo ">Cuadrada (6x6)</option>
 					</select>
-				</div>
+				</div>"; ?>
 
 				<!--VALIDACIÓN-->
 				<?php
@@ -78,15 +85,20 @@
 				?>
 
 				<!-- Select -->
-				<div class="form-group">
-					<label for="tipopapel">Papel:</label>
-					<select name="tipopapel" id="tipopapel" class="form-control">
-						<option value='' id='tipopapel'>Selecciona el tipo de papel</option>
-						<option value="opalina" id="tipopapel">Opalina</option>
-						<option value="glasse300" id="tipopapel">Glasse 300</option>
+				<?php echo "
+				<div class='form-group'>
+					<label for='tipopapel'>Papel:</label>
+					<select name='tipopapel' id='tipopapel' class='form-control'>
+						<option value='' id='tipopapel'>Selecciona el tipo de papel</option>;
+						<option value='opalina' id='tipopapel'";
+						if ( $papel == 'opalina') { echo "selected";}
+						echo " >Opalina</option>
+						<option value='glasse300' id='tipopapel'";
+						if ( $papel == 'glasse300') { echo "selected";}
+						echo " >Glasse 300</option>
 					</select>
-					<span class="help-block"></span>
-				</div>
+					<span class='help-block'></span>
+				</div>"; ?>
 
 				<!--VALIDACIÓN-->
 				<?php
@@ -100,21 +112,40 @@
 				?>
 
 				<!-- Select -->
-				<div class="form-group">
-					<label for="cantidad">Cantidad:</label>
-					<select name="cantidad" id="cantidad" class="form-control">
+				<?php echo "
+				<div class='form-group'>
+					<label for='cantidad'>Cantidad:</label>
+					<select name='cantidad' id='cantidad' class='form-control'>
 						<option value='' id='cantidad'>Selecciona la cantidad</option>
-						<option value="50" id="cantidad">50</option>
-						<option value="100" id="cantidad">100</option>
-						<option value="150" id="cantidad">150</option>
-						<option value="200" id="cantidad">200</option>
-						<option value="250" id="cantidad">250</option>
-						<option value="500" id="cantidad">500</option>
-						<option value="1000" id="cantidad">1000</option>
-						<option value="1500" id="cantidad">1500</option>
-						<option value="2000" id="cantidad">2000</option>
+						<option value='50' id='cantidad'";
+						if ($cantidad == '50') {echo "selected";}
+						echo ">50</option>
+						<option value='100' id='cantidad'";
+						if ($cantidad == '100') {echo "selected";}
+						echo ">100</option>
+						<option value='150' id='cantidad'";
+						if ($cantidad == '150') {echo "selected";}
+						echo ">150</option>
+						<option value='200' id='cantidad'";
+						if ($cantidad == '200') {echo "selected";}
+						echo ">200</option>
+						<option value='250' id='cantidad'";
+						if ($cantidad == '250') {echo "selected";}
+						echo ">250</option>
+						<option value='500' id='cantidad'";
+						if ($cantidad == '500') {echo "selected";}
+						echo ">500</option>
+						<option value='1000' id='cantidad'";
+						if ($cantidad == '1000') {echo "selected";}
+						echo ">1000</option>
+						<option value='1500' id='cantidad'";
+						if ($cantidad == '1500') {echo "selected";}
+						echo ">1500</option>
+						<option value='2000' id='cantidad'";
+						if ($cantidad == '2000') {echo "selected";}
+						echo ">2000</option>
 					</select>
-				</div>
+				</div>"; ?>
 
 				<!--VALIDACIÓN-->
 				<?php
@@ -128,50 +159,58 @@
 				?>
 
 				<!-- Radio -->
-				<div class="radio">
-					<label for="caras"><input type="radio" name="caras" id="caras" value="1" checked>Una Cara</label>
-					<label for="caras"><input type="radio" name="caras" id="caras" value="2">Dos Caras</label>
-				</div>
+				<?php echo "
+				<div class='radio'>
+					<label for='caras'>
+					<input type='radio' name='caras' id='caras' value='1'";
+					if ($caras == '1') { echo "checked";}
+					echo ">Una Cara</label>
+					<label for='2caras'>
+					<input type='radio' name='caras' id='2caras' value='2'";
+					if ($caras == '2') { echo "checked";}
+					echo ">Dos Caras</label>
+				</div>"; ?>
 
 
 				<!-- Input subir archivo -->
 				<div class="form-group">
-					<input type="file" name="archivo" id="archivo" data-multiple-caption="{count} files selected" class="" multiple />
+					<input type="file" name="archivo" id="archivo" data-multiple-caption="{count} files selected" class="inputfile inputfile-1" multiple />
+					<label for="archivo">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg>
+					<span>Seleccione un archivo&nbsp;</span></label>
 				</div>
 
 				<?php
+
 					$formatos = array('.jpg', '.png', '.pdf', '.tiff', '.doc');
 					$directorio = 'archivos';
 					$contArchivos = 0;
+					$idcliente = $_SESSION['id'];
+					$nombreInput = $_POST['nombre-archivo'];
 
-					$nombreArchivo = $_FILES['archivo']['name'];
-					$nombreTmpArchivo = $_FILES['archivo']['tmp_name'];
-					$ext = substr($nombreArchivo, strrpos($nombreArchivo, '.'));
+					if ( isset ($_POST['btn']) )	{
+						$nombreNuevo = $nombreInput.$ext;
+						$nombreArchivo = $_FILES['archivo']['name'];
+						$nombreTmpArchivo = $_FILES['archivo']['tmp_name'];
+						$ext = substr($nombreArchivo, strrpos($nombreArchivo, '.'));
 
-				if (isset($_FILES['archivo']['name']) and ($_FILES['archivo']['name'] == ''))
-				{
-
-						echo "<span class='help-block'>* Debe seleccionar un archivo</span>";
-						$campoobligado = 1;
-				}
-				else
-				{
-					if (in_array($ext, $formatos))
-					{
-						if (move_uploaded_file($nombreTmpArchivo, "ordenes/$id/$nombreArchivo"))
-						{
-						echo "Felicitaciones, el archivo $nombreArchivo se ha subido exitosamente";
+							if (in_array($ext, $formatos))
+							{
+								if (move_uploaded_file($nombreTmpArchivo, "ordenes/$idcliente/$nombreNuevo"))
+								{
+								echo "Felicitaciones, el archivo <b>$nombreArchivo</b> se ha subido exitosamente " .$_SESSION['id'];
+								}
+								else{
+									echo "<span class='help-block'>Ocurrió un error al subir archivo</span>" .$_SESSION['id'];
+								}
+							}
+							else{
+								echo "El formato de archivo seleccionado no está permitido";
+							}
 						}
-						else
-						{
-							echo "<span class='help-block'>Ocurrió un error al subir archivo</span>";
-						}
-					}
-					else
-					{
-						echo "El formato de archivo seleccionado no está permitido";
-					}
-				}
+
+
+
 				 ?>
 
 				<!-- Input textarea -->
@@ -269,7 +308,7 @@
 					}
 					else
 					{
-						echo "<input type='submit' value='Enviar Archivo' class='btn btn-default' name='btn'/>";
+						echo "<input type='submit' value='Enviar Archivo' class='btn btn-default' name='btn' id='btn'>";
 					}
 				?>
 
