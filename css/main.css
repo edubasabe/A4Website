@@ -133,7 +133,6 @@ textarea {
 position: absolute;
 background-color:#313280;
 border-radius: 3px;
-text-decoration: none;
 color: #fff;
 font-size: 1.2rem;
 font-weight: 700;
@@ -147,6 +146,7 @@ margin-left: 1rem;
 .lista-precios:hover {
   background-color: #ad0976;
   color: #fff;
+  text-decoration: none;
 }
 /*
 ul.nav {
@@ -494,7 +494,15 @@ text-align: center;
   font-weight: 700;
 }
 
-
+.btn-fucsia{
+    display: block!important;
+    background-color: #ad0976;
+    width: auto!important;
+}
+.btn-fucsia a {
+      color: #fff!important;
+      font-size: 2.4rem;
+}
 .btn-gris {
   background-color: #E1E7EB;
 }
@@ -582,13 +590,19 @@ padding-bottom: 4rem;
 .quienes-somos {
       /*background: #b5568a url(../img/quienes-somos/bg-quienes-somos.jpg);*/
       background-color: #fff;
-      padding: 4rem 0;
+      margin: 20 80 4 50;
+      padding: 2rem 0;
 }
+
 .quienes-somos h3{
-    color: #4e5a67;
+  padding-bottom: 2rem;
+  font: bold 4.0rem/3.1rem 'Roboto', Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0rem;
 }
 .quienes-somos p {
-  color: #737373;
+  color: #71787B;
   font: lighter 1.6rem/2.6rem 'Roboto', Arial, sans-serif;
 }
 .quienes-somos .flexbox {
@@ -628,7 +642,8 @@ ADVERTENCIA
 ================================ */
 .adv {
   font-size: 14px;
-  line-height: 14px;
+  line-height: 22px;
+  display: inline-block;
 }
 
 /* =================================
@@ -639,10 +654,15 @@ ADVERTENCIA
   background-color: #F2F2F2;
 
 }
-.contacto h3 {
-  color: #4e5a67;
 
+.contacto h2 {
+  padding-bottom: 4rem;
+  font: bold 4.0rem/3.1rem 'Roboto', Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 1rem;
 }
+
 
 .direccion p{
   color: #71787B;
@@ -674,13 +694,22 @@ ADVERTENCIA
 }
 .underfoot p {margin-bottom: 0; color: rgba(255, 255, 255, 0.5);}
 
+
 /* =================================
 Calendarios
 ================================ */
 .calendarios {
   padding: 6rem 0;
 }
-
+/* =================================
+USUARIO
+================================ */
+.usuario {
+  padding: 3rem 0;
+}
+.usuario h2{
+  font: bold 3.0rem/3.1rem 'Roboto', Arial, sans-serif;
+}
 /* =================================
 Login
 ================================ */

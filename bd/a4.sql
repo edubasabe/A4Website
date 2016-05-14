@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2016 at 11:51 PM
+-- Generation Time: May 14, 2016 at 04:37 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mydb`
+-- Database: `a4`
 --
 
 -- --------------------------------------------------------
@@ -31,8 +31,32 @@ CREATE TABLE `cliente` (
   `Nombre` varchar(45) NOT NULL,
   `Apellido` varchar(45) NOT NULL,
   `Telefono` varchar(45) NOT NULL,
-  `Correo` varchar(45) NOT NULL
+  `Correo` varchar(45) NOT NULL,
+  `contrasena` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cliente`
+--
+
+INSERT INTO `cliente` (`idCliente`, `Nombre`, `Apellido`, `Telefono`, `Correo`, `contrasena`) VALUES
+(2, 'Mariam', 'Torres', '4146376903', 'mariamtorres06@gmail.com', '123'),
+(3, 'David', 'Basabe', '04146309265', 'edubasabe1@gmail.com', '456456'),
+(4, 'Edison', 'Villalobos', '4146183921', 'EDISON2@GMAIL.COM', 'EDI'),
+(5, 'JULIAN', 'JUL', '5445678', 'JUL@GMAIL.COM', '1231234'),
+(6, 'julio', 'lopez', '85853937', 'juito@gmail.com', '123123'),
+(7, 'juan', 'perez', '8394004', 'j@tal.com', '1234'),
+(8, 'calamardo', 'arenita', '12322233', 'cal@tal.com', '1234234'),
+(9, 'luis', 'landa', '3334445', 'll@l.com', '456567'),
+(10, 'daniel', 'lo', '22334', 'j@ta.as', '1233'),
+(11, 'dayana', 'mendoza', '0298', 'dy@r.com', '4556'),
+(12, 'carlos', 'gol', '9887', 'cg@g.com', '998665'),
+(13, 'jose', 'blah', '131312', 'm@gmail.com', '1323123'),
+(14, 'laura', 'lopez', '4567', 'l@lo.com', '123'),
+(15, 'ofe', 'lion', '458', 'o@le.com', '123'),
+(16, 'lucas', 'lu', '458', 'llu@lu.com', '123'),
+(17, 'lo', 'ren', '487', 'zo@as.com', '123'),
+(18, 'lorenzo', ' mendoza', '457', 'l@me.com', '145');
 
 -- --------------------------------------------------------
 
@@ -45,6 +69,23 @@ CREATE TABLE `detalle` (
   `Nombre` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `detalle`
+--
+
+INSERT INTO `detalle` (`idDetalle`, `Nombre`) VALUES
+(1, 'tamano'),
+(2, 'papel'),
+(4, 'caras'),
+(5, 'observaciones'),
+(6, 'calidad'),
+(7, 'armado'),
+(8, 'copias'),
+(9, 'pag-internas'),
+(10, 'uv'),
+(11, 'bordes'),
+(12, 'anillado');
+
 -- --------------------------------------------------------
 
 --
@@ -55,7 +96,7 @@ CREATE TABLE `orden` (
   `idOrden` int(11) NOT NULL,
   `Producto_idProducto` int(11) NOT NULL,
   `Cliente_idCliente` int(11) NOT NULL,
-  `Nombre` varchar(45) NOT NULL,
+  `nombrearchivo` varchar(45) NOT NULL,
   `Link` varchar(45) NOT NULL,
   `Cantidad` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -80,9 +121,21 @@ CREATE TABLE `orden_has_detalle` (
 
 CREATE TABLE `producto` (
   `idProducto` int(11) NOT NULL,
-  `Nombre` varchar(45) NOT NULL,
+  `nombreproducto` varchar(45) NOT NULL,
   `Descripcion` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `producto`
+--
+
+INSERT INTO `producto` (`idProducto`, `nombreproducto`, `Descripcion`) VALUES
+(1, 'tarjetapresentacion', ''),
+(2, 'volantes', ''),
+(3, 'pendones', ''),
+(4, 'factureros', ''),
+(5, 'calendarios', ''),
+(6, 'impindividual', '');
 
 --
 -- Indexes for dumped tables
@@ -122,6 +175,30 @@ ALTER TABLE `orden_has_detalle`
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`idProducto`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT for table `detalle`
+--
+ALTER TABLE `detalle`
+  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `orden`
+--
+ALTER TABLE `orden`
+  MODIFY `idOrden` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `producto`
+--
+ALTER TABLE `producto`
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --

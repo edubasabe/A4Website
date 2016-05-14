@@ -1,7 +1,7 @@
 <!doctype html>
 <?php
   error_reporting(E_ERROR | E_PARSE); // Desactiva la notificación y warnings de error en php.
-
+  include_once('conexion.php');
   include_once('funciones.php');
   $campoobligado = 0;
   $errorendato = 0;
@@ -30,17 +30,19 @@
 <?php
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
+  $telefono     = $_POST['telefono'];
   $correo     = $_POST['correo'];
-  $nomusuario   = $_POST['nomusuario'];
-  $clave  = $_POST['clave'];
+  $contrasena  = $_POST['contrasena'];
 ?>
 <div class="col-md-offset-3 col-md-6 col-md-offset-3 center">
         <form action="" method="post" enctype="multipart/form-data" id="formulario">
         <!-- Input -->
-        <div class="form-group">
-          <label for="nombre">Nombre</label>
-          <input type="text" name="nombre" id="nombre" class="form-control">
-        </div>
+        <?php  echo "
+        <div class='form-group'>
+          <label for='nombre'>Nombre</label>
+          <input type='text' name='nombre' id='nombre' class='form-control' value='$nombre'>
+        </div>";?>
+
         <?php
           // validar nombre
           if ( isset($nombre) and ($nombre != '') )
@@ -88,6 +90,31 @@
 
         ?>
         <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="text" name="telefono" minlength="11" id="telefono" class="form-control">
+        </div>
+        <?php
+          // validar telefono
+          if ( isset($telefono) and ($telefono != '') )
+            {
+              if ( validaEntero($telefono) )
+              {
+
+              }else {
+                echo "<span class='help-block'>* No debe ingresar caracteres especiales</span>";
+                $errorendato = 1;
+              }
+            }
+            else
+            {
+              if ( isset($telefono) and ($telefono == '') ) {
+              echo "<span class='help-block'>* Debe ingresar un telefono</span>";
+              $campoobligado = 1;
+              }
+            };
+
+        ?>
+        <div class="form-group">
           <label for="correo">Correo</label>
           <input type="text" name="correo" id="correo" class="form-control">
         </div>
@@ -112,26 +139,12 @@
             };
             ?>
         <div class="form-group">
-          <label for="nomusuario">Nombre de Usuario</label>
-          <input type="text" name="nomusuario" id="nomusuario" class="form-control">
-        </div>
-        <?php
-          // validar Nombre de usuario
-          if ( isset($nomusuario) and ($nomusuario == '') ) {
-            echo "<span class='help-block'>* Debe colocar el nombre de usuario</span>";
-            $campoobligado = 1;
-            }
-          else {
-          };
-
-        ?>
-        <div class="form-group">
-          <label for="clave">Contraseña</label>
-          <input type="text" name="clave" id="clave" class="form-control">
+          <label for="contrasena">Contraseña</label>
+          <input type="password" maxlength="8" name="contrasena" id="contrasena" class="form-control">
         </div>
         <?php
           // validar contraseña
-          if ( isset($clave) and ($clave == '') ) {
+          if ( isset($contrasena) and ($contrasena == '') ) {
             echo "<span class='help-block'>* Ingrese una contraseña</span>";
             $campoobligado = 1;
             }
@@ -150,7 +163,43 @@
             }
             else
             {
-              echo "<label><input type='submit' value='Enviar' class='btn btn-default' name='btn' id='btnenv'/></label>";
+              // Buscar en la Base de Datos
+                  $querybuscar = $mysqli->query("SELECT * FROM cliente where correo= '$correo'") or die ( "<br>No se puede ejecutar query para buscar datos ". $mysqli->error);
+                  if (mysqli_num_rows($querybuscar) > 0 )
+                  {
+                    
+                    $querybuscarC = $mysqli->query("SELECT * FROM cliente where correo='$correo' ") or die ( "<br>No se puede ejecutar query para buscar cedula ". $mysqli->error);
+                    if (mysqli_num_rows($querybuscarC) > 0 )
+                    {
+                      echo "<span class='help-block'>* Este correo ya está registrado</span>";
+                    }
+                  }
+                  else
+                  {
+                    // Insertar en la Base de Datos
+                    $queryInsertar = $mysqli->query("INSERT INTO cliente (idCliente, Nombre, Apellido, Telefono, Correo, contrasena) values (
+                    null, '$nombre', '$apellido', '$telefono', '$correo', '$contrasena')") or die ( "<br>No se puede ejecutar query para insertar datos ". $mysqli->error);                    
+                    
+                    if ($queryInsertar)
+                    {
+                      echo "<span class='help-block has-success'>Registro exitoso!</span>";
+
+                      //Buscar el id del cliente
+                      $querybuscar2 = $mysqli->query("SELECT idCliente FROM cliente where correo='$correo' ") or die ( "<br>No se puede ejecutar query para buscar datos 2 ". $mysqli->error);
+                      while (($fila=mysqli_fetch_array($querybuscar2)))
+                      {
+                        $id= $fila['idCliente'];
+                      //  echo "<br> el id es $id <br>";
+                          
+                          // Crea la carpeta que recibe los archivos del usuario
+                         $ruta = "ordenes/".$id."";
+                         
+                        if(!is_dir($ruta)){ 
+                        $crearcarpeta = mkdir($ruta, 0777);
+                        } 
+                      }
+                    }
+                  }
             }
           }
           else
