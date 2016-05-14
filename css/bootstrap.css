@@ -2981,11 +2981,13 @@ select[multiple].input-lg {
   top: 0;
 }
 .help-block {
-  display: block;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  color: #737373;
+    display: block;
+    margin-bottom: 10px;
+    color: #D40D0D;
+    font-size: 14px;
+    margin-top: -8px;
 }
+
 @media (min-width: 768px) {
   .form-inline .form-group {
     display: inline-block;
@@ -3076,7 +3078,7 @@ select[multiple].input-lg {
 }
 .btn {
   display: inline-block;
-  width: 100%;
+  width: 95%;
   min-height: 4.5rem;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -3094,6 +3096,7 @@ select[multiple].input-lg {
       -ms-user-select: none;
           user-select: none;
   background-image: none;
+  background-color: #ad0976;
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -3134,9 +3137,9 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 .btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  color: #fff;
+  background-color: #ad0976;
+  border-color: #ad0976;
 }
 .btn-default:focus,
 .btn-default.focus {

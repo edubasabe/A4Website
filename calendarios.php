@@ -2,7 +2,8 @@
 
 <?php
 	error_reporting(E_ERROR | E_PARSE); // Desactiva la notificación y warnings de error en php.
-
+	
+	include_once('conexion.php');
 	include_once('funciones.php');
 	$campoobligado = 0;
 	$errorendato = 0;

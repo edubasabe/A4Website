@@ -1,6 +1,8 @@
 <?php
-# session_start();
-# error_reporting(E_ERROR | E_PARSE);
+session_start();
+error_reporting(E_ERROR | E_PARSE);
+
+include_once('conexion.php')
  ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -31,22 +33,22 @@ echo "
           <form name='inicia-sesion' action='sesion.php' method='post'> "; ?>
 
           <?php echo "
-          <label for='usuario'>Usuario</label>
-          <input type='text' name='txtusuario' id='txtusuario' maxlength='12' placeholder='Ingrese su nombre de usuario' value=''>
+          <label for='correo'>Correo electrónico:</label>
+          <input type='text' name='correo' id='correo' placeholder='Ingrese su correo electrónico' value=''>
           <br>
           <label for='password'>Contraseña</label>
-          <input type='password' name='txtclave' id='txtclave' maxlength='12' placeholder='Ingrese su contraseña'  value=''>
+          <input type='password' name='contrasena' id='contrasena' maxlength='8' placeholder='Ingrese su contraseña'  value=''>
           <br>
-          <input type='submit' name='BtnEnviar' id='BtnEnviar' class='btn btn-azul' value='Iniciar Sesión'>"; ?>
+          <input type='submit' name='btn' id='btn' class='btn btn-azul' value='Iniciar Sesión'>"; ?>
 
           <?php   if ($_GET['error']=='si')
                   {
-                    echo "p class='error text-center'>Los datos que ingresaste no son válidos</p>";
+                    echo "<p class='error text-center'>Los datos que ingresaste no son válidos</p>";
                   }
           ?>
          <?php echo "
           </form>
-        <a href='#' style='margin-top:1rem;'>¿Ha olvidado su usuario o contraseña?</a>
+        <a href='#' style='margin-top:1rem;'>¿Ha olvidado su contraseña?</a>
         <hr>
         <button class='btn btn-gris'><a href='registro.php'>Registrarse</a></button>
       </div>

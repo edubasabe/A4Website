@@ -1,6 +1,7 @@
 <!doctype html>
 <?php
   error_reporting(E_ERROR | E_PARSE); // Desactiva la notificación y warnings de error en php.
+  include_once('conexion.php');
   include_once('funciones.php');
   $campoobligado = 0;
   $errorendato = 0;
@@ -20,7 +21,7 @@
       <div class="col-sm-12 col-md-12 col-lg-12">
           <h2>¡Envíanos tu arte!</h2>
           <h4>Ahora no es necesario que vengas a nuestras oficinas <br>para entregar tus archivos. Regístrate y súbelos aquí</h4>
-          <button class="button-primary"><a href="" >Comienza Ahora</a></button>
+          <button class="btn btn-fucsia center-block"><a href="registro.php" >Comienza Ahora</a></button>
       </div>
   </div>
   </div>
@@ -115,9 +116,9 @@
 <!--Contactos-->
 <section class="contacto">
   <div class="container">
+  <div class="row"><h2>Contacto</h2></div>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <h3>Formulario de Contacto</h3>
           <?php
           $nombre   =  $_POST['nombre'];
           $correo   =  $_POST['correo'];
@@ -213,16 +214,25 @@
             {
               if ( $campoobligado == 1 or $errorendato == 1 )
               {
-                echo "<label><input type='submit' value='Enviar' class='btn btn-default' name='btn'/></label>";
+                echo "<input type='submit' value='Enviar' class='btn btn-default' name='btn'/>";
               }
               else
-              {
-                echo "<label><input type='submit' value='Enviar' class='btn btn-default' name='btn' id='btnenv'/></label>";
+              {  
+                //Insertar la info en la base de datos
+
+
+
+
+
+                echo "Registro Exitoso";
+
+
+                //echo "<input type='submit' value='Enviar' class='btn btn-default' name='btn' id='btnenv'/>";
               }
             }
             else
             {
-              echo "<label><input type='submit' value='Enviar' class='btn btn-default' name='btn' id='btnenv'/></label>";
+              echo "<input type='submit' value='Enviar' class='btn btn-default' name='btn' id='btnenv'/>";
             }
           ?>
         </form>

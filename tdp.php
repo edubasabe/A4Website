@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-
 <?php
 	error_reporting(E_ERROR | E_PARSE); // Desactiva la notificación y warnings de error en php.
-
+	include_once('conexion.php');
 	include_once('funciones.php');
 	$campoobligado = 0;
 	$errorendato = 0;
@@ -19,19 +18,12 @@
 
 <?php
 	$nombre = $_POST['nombre-archivo'];
-	$tipo     = $_POST['tamano'];
+	$tamano     = $_POST['tamano'];
 	$papel   = $_POST['tipopapel'];
 	$cantidad  = $_POST['cantidad'];
 	$caras  = $_POST['caras'];
 	$archivo   = $_POST['archivo'];
 	$obs     = $_POST['observaciones'];
-
-	//echo "Su nombre es: $nombre";
-
-	/*foreach ($_POST['CheckBox'] as $idh)
-	{
-		echo "<br>el hobie es: CheckBox$idh ";
-	}*/
 ?>
 
 <!-- FORMULARIO -->
@@ -76,7 +68,7 @@
 
 				<!--VALIDACIÓN-->
 				<?php
-				if ( isset($tipo) and ($tipo == '') )
+				if ( isset($tamano) and ($tamano == '') )
 				{
 					  echo "<span class='help-block'>* Debe seleccionar un tipo de tarjeta</span> ";
 					  $campoobligado = 1;
@@ -144,8 +136,43 @@
 
 				<!-- Input subir archivo -->
 				<div class="form-group">
-					<input type="file" name="archivo" id="archivo" data-multiple-caption="{count} files selected" class="btn btn-default" multiple />
+					<input type="file" name="archivo" id="archivo" data-multiple-caption="{count} files selected" class="" multiple />
 				</div>
+
+				<?php
+					$formatos = array('.jpg', '.png', '.pdf', '.tiff', '.doc');
+					$directorio = 'archivos';
+					$contArchivos = 0;
+
+					$nombreArchivo = $_FILES['archivo']['name'];
+					$nombreTmpArchivo = $_FILES['archivo']['tmp_name'];
+					$ext = substr($nombreArchivo, strrpos($nombreArchivo, '.'));
+
+				if (isset($_FILES['archivo']['name']) and ($_FILES['archivo']['name'] == ''))
+				{
+
+						echo "<span class='help-block'>* Debe seleccionar un archivo</span>";
+						$campoobligado = 1;
+				}
+				else
+				{
+					if (in_array($ext, $formatos))
+					{
+						if (move_uploaded_file($nombreTmpArchivo, "ordenes/$id/$nombreArchivo"))
+						{
+						echo "Felicitaciones, el archivo $nombreArchivo se ha subido exitosamente";
+						}
+						else
+						{
+							echo "<span class='help-block'>Ocurrió un error al subir archivo</span>";
+						}
+					}
+					else
+					{
+						echo "El formato de archivo seleccionado no está permitido";
+					}
+				}
+				 ?>
 
 				<!-- Input textarea -->
 				<div class="form-group">
@@ -158,18 +185,91 @@
 				<?php
 					if ( isset ($_POST['btn']) )
 					{
-						if ( $campoobligado == 1 or $errorendato == 1 )
-						{
-							echo "<br /><br /><label><input type='submit' value='Enviar Archivo' class='btn btn-default' name='btn'/></label>";
+						if ($_SESSION['autenticado'] > 0) {
+
+							if ( $campoobligado == 1 or $errorendato == 1 )
+							{
+							echo "<input type='submit' value='Enviar Archivo' class='btn btn-default' name='btn'/>";
+							}
+							else
+							{
+								// Buscar en la Base de Datos
+								$querybuscar = $mysqli->query("SELECT * FROM cliente join orden on cliente.id = orden.Cliente_idCliente where id='$id' or usuario='$usuario' ") or die ( "<br>No se puede ejecutar query para buscar datos ". $mysqli->error);
+								if (mysqli_num_rows($querybuscar) > 0 )
+								{
+
+								$querybuscarC = $mysqli->query("SELECT * FROM datospersonales where cedula='$cedula' ") or die ( "<br>No se puede ejecutar query para buscar cedula ". $mysqli->error);
+								if (mysqli_num_rows($querybuscarC) > 0 )
+								{
+									echo "<span class='error'><br><br>C&eacute;dula ya registrada</span>";
+								}
+								$querybuscarU = $mysqli->query("SELECT * FROM usuario where usuario='$usuario' ") or die ( "<br>No se puede ejecutar query para buscar usuario ". $mysqli->error);
+								if (mysqli_num_rows($querybuscarU) > 0 )
+								{
+									echo "<span class='error'><br><br>Usuario ya registrado</span>";
+								}
+								echo "<br><br><label><input name='BtnEnviar' type='submit' id='BtnEnviar' value='Enviar' ></label>";
+
+								}
+								else
+								{
+
+								// Insertar en la Base de Datos
+								$queryInsertar = $mysqli->query("INSERT INTO datospersonales(
+								id,    cedula,     nombre,    apellido,   genero,       edocivil,     fechanac,  correo   ) values (
+								null, '$cedula', '$nombre', '$apellido', '$RadOpcion', '$Seleccion', '$fechanac', '$correo' )") or die ( "<br>No se puede ejecutar query para insertar datos ". $mysqli->error);
+
+									// Buscar Datos
+									$querybuscar2 = $mysqli->query("SELECT id FROM datospersonales where cedula='$cedula' ") or die ( "<br>No se puede ejecutar query para buscar datos 2 ". $mysqli->error);
+									while (($fila=mysqli_fetch_array($querybuscar2)))
+									{
+									$id= $fila['id'];
+									//echo "<br> el id es $id <br>";
+								}
+								if ($querybuscar2)
+								{
+									// Insertar en la Base de Datos
+									$queryInsertar2 = $mysqli->query("INSERT INTO usuario( idusuario,    usuario,     clave,    id ) values ( null, '$usuario', '$clave', '$id' )") or die ( "<br>No se puede ejecutar query para insertar datos 2 ". $mysqli->error);
+								}
+
+								foreach ($_POST['CheckBox'] as $idh)
+								{
+									// Insertar en la Base de Datos
+									$queryInsertar3 = $mysqli->query("INSERT INTO hobiesdp( idhobiedp, id, idhobie ) values ( null, '$id', $idh )") or die ( "<br>No se puede ejecutar query para insertar datos hobies". $mysqli->error);
+								}
+
+								/*if($CheckBox1 == 'CheckBox1')
+									{
+									// Insertar en la Base de Datos
+									$queryInsertar3 = $mysqli->query("INSERT INTO hobiesdp( idhobiedp, id, idhobie ) values ( null, '$id', 1 )") or die ( "<br>No se puede ejecutar query para insertar datos 3". $mysqli->error);
+									}
+									if($CheckBox2 == 'CheckBox2')
+									{
+									// Insertar en la Base de Datos
+									$queryInsertar4 = $mysqli->query("INSERT INTO hobiesdp( idhobiedp, id, idhobie ) values ( null, '$id', 2 )") or die ( "<br>No se puede ejecutar query para insertar datos 4". $mysqli->error);
+									}
+									if($CheckBox3 == 'CheckBox3')
+									{
+									// Insertar en la Base de Datos
+									$queryInsertar5 = $mysqli->query("INSERT INTO hobiesdp( idhobiedp, id, idhobie ) values ( null, '$id', 3 )") or die ( "<br>No se puede ejecutar query para insertar datos 5". $mysqli->error);
+									}
+								*/
+
+
+								if ($queryInsertar && $queryInsertar2 )
+								{
+									echo "<span class='error'><br><br>Datos registrados exitosamente<br><br></span>";
+								}
+							}
+							}
 						}
-						else
-						{
-							echo "<br /><br /><label><input type='submit' value='Enviar Archivo' class='btn btn-default' name='btn'/></label>";
+						else{
+							echo "<span class='help-block'>* Debe iniciar sesión para enviar archivos</span>";
 						}
 					}
 					else
 					{
-						echo "<br /><br /><label><input type='submit' value='Enviar Archivo' class='btn btn-default' name='btn'/></label>";
+						echo "<input type='submit' value='Enviar Archivo' class='btn btn-default' name='btn'/>";
 					}
 				?>
 

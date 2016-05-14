@@ -13,7 +13,7 @@
         </div>
       </button>
       <!-- Logo -->
-      <a href="/" class="navbar-brand">
+      <a href="index.php" class="navbar-brand">
         <span class="invisible">A4Website</span>
         <div class="logo">
           <img src="img/logo/A4Logo.svg" width="auto" height="80px" alt="Logo">
@@ -22,7 +22,7 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <span><a href="#" class="lista-precios">Lista de Precios</a></span>
+        <span><a href="pdf/listadeprecios.pdf" class="lista-precios">Lista de Precios</a></span>
         <?php
         error_reporting(E_ERROR | E_PARSE);
         session_start();
@@ -31,7 +31,7 @@
          # echo "<li><a href='salir.php'>Hola, ".$_SESSION['usuario'] ,"</a></li>";
          # echo "<li><a href='salir.php'>Cerrar sesión</a></li>";
          echo "<li class='dropdown'>
-                 <a href='editar-registro.php' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Hola, ".$_SESSION['usuario'] , " <span class='caret'></span></a>
+                 <a href='editar-registro.php' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Hola, ".$_SESSION['nombre'] , " <span class='caret'></span></a>
                    <ul class='dropdown-menu'>
                      <li><a href='editar-registro.php'>Editar perfil</a></li>
                      <li><a href='salir.php'>Cerrar sesión</a></li>
