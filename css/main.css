@@ -644,6 +644,7 @@ ADVERTENCIA
   font-size: 14px;
   line-height: 22px;
   display: inline-block;
+  margin-bottom: 2rem;
 }
 
 /* =================================
@@ -694,6 +695,15 @@ ADVERTENCIA
 }
 .underfoot p {margin-bottom: 0; color: rgba(255, 255, 255, 0.5);}
 
+.footer .redes a {
+  background: #fff;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 60px;
+    text-align: center;
+    line-height: 3.5;
+}
 
 /* =================================
 Calendarios
