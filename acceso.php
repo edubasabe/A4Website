@@ -4,7 +4,7 @@ if (!$_SESSION['autenticado'] ) {
 	header("Location: login.php");
 }
 
-$inactivo = 30;
+$inactivo = 120;
     if(isset($_SESSION['tiempo']) ) {
     $vida_session = time() - $_SESSION['tiempo'];
         if($vida_session > $inactivo)

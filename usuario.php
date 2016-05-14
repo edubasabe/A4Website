@@ -6,12 +6,8 @@
 	include_once('funciones.php');
 	$campoobligado = 0; 
 	$errorendato = 0; 
-
-	session_start();
-	//echo "Bienvenido su id es: ".$_SESSION['id'];
-	$id = $_SESSION['id'];
-	//echo "id = $id";	
 ?>
+
 <html class="no-js" lang="">
     <head>
     	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -36,6 +32,49 @@
 <?php include_once("header.php") ?>
 </header>
 
+<?php
+$seleccion_buscar =	 $_POST['seleccion_buscar'];
+?>
+
+<?php
+if (!isset($_POST['btn']))
+{
+$id = $_REQUEST['id'];
+}else
+{
+$id = $_REQUEST['hiddenid'];
+}
+
+//Busquedas
+/*$querybuscarD = $mysqli->query("SELECT * FROM cliente where id = $id")
+or die ("<br>No se puede ejecutar query para buscar datos P ". $mysqli->error);
+
+	if ( $fila=mysqli_fetch_array($querybuscarD) )
+	{
+		$id				= $fila['idCliente'];
+		$nombre			= $fila['Nombre'];
+		$apellido		= $fila['Apellido'];
+		$correo			= $fila['Correo'];
+		$telefono 		= $fila['Telefono'];
+		$contrasena		= $fila['contrasena'];
+	}
+
+if (isset($_POST['btn']))
+{
+	$id         = $_POST['hiddenid'];
+	$nombre     = $_POST['txtnombre'];
+	$apellido   = $_POST['txtapellido'];
+	$correo     = $_POST['txtcorreo'];
+	$telefono   = $_POST['txtusuario'];
+	$contrasena = $_POST['txtclave1'];
+
+	/*foreach ($_POST['CheckBox'] as $idh)
+	{
+		echo "<br>el hobie es: CheckBox$idh ";
+	}
+}*/
+?>
+
 <!-- USUARIO -->
 <section class="usuario">
 	<div class="container">
@@ -43,37 +82,14 @@
 			<h2>Usuario</h2>
 		</div>
 		<div class="row">
-	<?php
-
-	$querybuscar = $mysqli->query("SELECT * FROM cliente where idCliente ='$id'");
-	while (($fila=mysqli_fetch_array($querybuscar))) 
-	{
-		$nombre = $fila['Nombre'];
-		$apellido = $fila['Apellido'];
-		$telefono = $fila['Telefono'];
-		$correo = $fila['Correo'];
-		$contrasena = $fila['contrasena'];
-	}
-
-	if (mysqli_num_rows($querybuscar) > 0 )
-	{
-		echo "
-			<div class='col-md-6'>
+			<div class="col-md-6">
 				<h3>Nombre:</h3>
-				<p>$nombre</p>
-				<h3>Apellido:</h3> 
-				<p>$apellido</p>
+				<h3>Apellido:</h3>
 				<h3>Teléfono:</h3>
-				<p>$telefono</p>
 			</div>
-			<div class='col-md-6'>
-				<h3>Correo electrónico:</h3>
-				<p>$correo</p>
-				<br><br>
-				<input type='submit' value='Modificar datos' class='btn btn-default' name='btn'/>
-	";
-	}
-	?>
+			<div class="col-md-6">
+				<h3>Correo:</h3>
+				<h3>Contraseña:</h3>
 			</div>
 		</div>
 	</div>

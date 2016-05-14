@@ -9,7 +9,7 @@
 
 .inputfile + label {
     max-width: 80%;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     /* 20px */
     font-weight: 700;
     text-overflow: ellipsis;
@@ -51,14 +51,15 @@
 /* style 1 */
 
 .inputfile-1 + label {
-    color: #f1e5e6;
-    background-color: #d3394c;
+    color: #fff;
+    background-color: #313280;
+    border-radius: 0.3rem;
 }
 
 .inputfile-1:focus + label,
 .inputfile-1.has-focus + label,
 .inputfile-1 + label:hover {
-    background-color: #722040;
+    background-color: #ad0976;
 }
 
 
